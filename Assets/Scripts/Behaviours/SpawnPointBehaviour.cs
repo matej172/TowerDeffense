@@ -14,7 +14,7 @@ public class SpawnPointBehaviour : MonoBehaviour
     void SpawnEnemy()
     {
         Enemy enemyModel = new Enemy();
-        GameObject enemyObject = Instantiate(spawnPrefab);
+        GameObject enemyObject = Instantiate(spawnPrefab, transform);
         enemyObject.GetComponent<EnemyBehaviour>().Initialize(enemyModel);
     }
 

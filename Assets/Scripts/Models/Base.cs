@@ -4,17 +4,22 @@ namespace Models
 {
     public class Base
     {
-        private int hp;
-        public Vector2 position = new Vector2(4f, 3f);
+        public int hp;
+        public Vector2 position;
 
-        public Base(int hp)
+        public Base(int hp, Vector2 position)
         {
             this.hp = hp;
+            this.position = position;
         }
         
         public void ResolveAttack(int attack)
         {
             hp -= attack;
+            if (hp <= 0)
+            {
+                App.levelManager.RemoveBase(this);
+            }
             Debug.Log("Current hp: " + this.hp);
         }
     }
